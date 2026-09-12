@@ -381,6 +381,7 @@ local CreateStep = {
 		base.entry:SetValue(tab.Var)
 		base.entry:SetUpdateOnType(true)
 
+		local defaultTextColor = base.entry:GetTextColor()
 		base.entry.OnValueChange = function(self, val)
 			val = tostring(val)
 			if val then
@@ -398,7 +399,7 @@ local CreateStep = {
 				base.entry:SetTextColor(RED)
 				base.entry:SetTooltip("Following commands can't be executed by Lua: " .. table.concat(restricted, ", "))
 			else
-				base.entry:SetTextColor(nil)
+				base.entry:SetTextColor(defaultTextColor)
 				base.entry:SetTooltip(nil)
 			end
 		end
